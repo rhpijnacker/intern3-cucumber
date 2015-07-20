@@ -16,7 +16,9 @@
 		"leadfoot": "1.6.0-rc.1",
 		"digdug": "1.3.2",
 		"charm": "0.2.0",
-		"diff": "1.1.0"
+		"diff": "1.1.0",
+		"benchmark": "bestiejs/benchmark.js#8c2b72a98945035e5c43e57da3b29185a0462cb1",
+		"microtime": "1.4.2"
 	},
 	"devDependencies": {
 		"intern": "2.2.2"
