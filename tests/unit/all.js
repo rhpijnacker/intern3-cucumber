@@ -9,6 +9,7 @@ define([
 	'./lib/ReporterManager',
 	'./lib/interfaces/tdd',
 	'./lib/interfaces/bdd',
+	'./lib/interfaces/benchmark',
 	'./lib/interfaces/object',
 	'./lib/interfaces/qunit',
 	'./lib/reporters/Console',
