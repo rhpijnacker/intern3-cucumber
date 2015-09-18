@@ -57,12 +57,14 @@ define([
 					]
 				});
 
-				benchmark({
-					name: 'benchmark suite 2',
-					'test1': function () {
-						var x = 1;
-						x = x + 1;
-					}
+				benchmark(function () {
+					return {
+						name: 'benchmark suite 2',
+						'test1': function () {
+							var x = 1;
+							x = x + 1;
+						}
+					};
 				});
 
 				for (var i = 0, mainSuite; (mainSuite = rootSuites[i]) && (mainSuite = mainSuite.tests); ++i) {
