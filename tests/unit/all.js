@@ -1,7 +1,7 @@
 define([
 	'./main',
 	'./order',
-	'./lib/BenchmarkSuite',
+	'./lib/BenchmarkTest',
 	'./lib/EnvironmentType',
 	'./lib/Suite',
 	'./lib/Test',
