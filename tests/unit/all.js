@@ -13,6 +13,7 @@ define([
 	'./lib/interfaces/object',
 	'./lib/interfaces/qunit',
 	'./lib/reporters/Console',
+	'dojo/has!host-node?./lib/Proxy',
 	'dojo/has!host-node?./lib/reporters/Pretty',
 	'dojo/has!host-node?./lib/reporters/TeamCity',
 	'dojo/has!host-node?./lib/reporters/JUnit',

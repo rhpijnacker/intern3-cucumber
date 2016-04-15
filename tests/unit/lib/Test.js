@@ -135,7 +135,7 @@ define([
 			var dfd = this.async(500);
 			var test = new Test({
 				test: function () {
-					this.async(250);
+					this.async(100);
 				}
 			});
 
@@ -206,6 +206,7 @@ define([
 				error: null,
 				id: 'parent id - test name',
 				name: 'test name',
+				parentId: 'parent id',
 				sessionId: 'abcd',
 				timeElapsed: 100,
 				timeout: 30000,
@@ -222,7 +223,12 @@ define([
 
 				test.error = expected.error = { name: 'Oops', message: 'message', stack: 'stack' };
 				assert.deepEqual(test.toJSON(), expected,
-					'Test#toJSON should return expected JSON structure for test with error');
+					'Test#toJSON should return expected JSON structure for test with error not including diff info');
+
+				test.error = expected.error = { name: 'Oops', message: 'message', stack: 'stack', showDiff: true,
+					expected: 'foo', actual: 'bar' };
+				assert.deepEqual(test.toJSON(), expected,
+					'Test#toJSON should return expected JSON structure for test with error including diff info');
 			});
 		},
 

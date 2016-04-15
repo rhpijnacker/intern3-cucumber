@@ -78,21 +78,22 @@ define([
 		},
 
 		'BenchmarkTest#skip': function () {
-			var skipped;
-			var test = createTest({
+			var actual;
+			var expected = createTest({
 				test: function () {
-					this.skip('foo');
+					this.skip('IT’S A TRAP');
 				},
-				reporterManagerEmit: function (topic) {
+				reporterManagerEmit: function (topic, test) {
 					if (topic === 'testSkip') {
-						skipped = true;
+						actual = test;
 					}
 				}
 			});
 
-			return test.run().then(function () {
-				assert.isTrue(skipped, 'testSkip topic should fire when a test is skipped');
-				assert.propertyVal(test, 'skipped', 'foo', 'test should have `skipped` property with expected value');
+			return expected.run().then(function () {
+				assert.strictEqual(actual, expected, 'testSkip topic should fire when a test is skipped');
+				assert.strictEqual(actual.skipped, 'IT’S A TRAP',
+					'test should have `skipped` property with expected value');
 			});
 		},
 
@@ -112,6 +113,7 @@ define([
 					error: null,
 					id: 'parent id - test name',
 					name: 'test name',
+					parentId: 'parent id',
 					sessionId: 'abcd',
 					timeout: 30000,
 					hasPassed: true,
